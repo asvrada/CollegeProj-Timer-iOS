@@ -11,6 +11,7 @@
 		1F2E9AAA1FBC5FC300AE0537 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E9AA91FBC5FC300AE0537 /* Setting.swift */; };
 		1F2E9AAE1FBC611C00AE0537 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E9AAD1FBC611C00AE0537 /* SettingTableViewController.swift */; };
 		1F2E9AB01FBC6A1200AE0537 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E9AAF1FBC6A1200AE0537 /* ColorViewController.swift */; };
+		1F2E9AB21FBC7E4B00AE0537 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E9AB11FBC7E4B00AE0537 /* MainViewController.swift */; };
 		1FB76A701FBB9E0A00480931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB76A6F1FBB9E0A00480931 /* AppDelegate.swift */; };
 		1FB76A721FBB9E0A00480931 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB76A711FBB9E0A00480931 /* ViewController.swift */; };
 		1FB76A751FBB9E0A00480931 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB76A731FBB9E0A00480931 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		1F2E9AA91FBC5FC300AE0537 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		1F2E9AAD1FBC611C00AE0537 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		1F2E9AAF1FBC6A1200AE0537 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		1F2E9AB11FBC7E4B00AE0537 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1FB76A6C1FBB9E0A00480931 /* HITs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HITs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB76A6F1FBB9E0A00480931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FB76A711FBB9E0A00480931 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				1FB76A711FBB9E0A00480931 /* ViewController.swift */,
 				1F2E9AA91FBC5FC300AE0537 /* Setting.swift */,
 				1FB76A731FBB9E0A00480931 /* Main.storyboard */,
+				1F2E9AB11FBC7E4B00AE0537 /* MainViewController.swift */,
 				1F2E9AAF1FBC6A1200AE0537 /* ColorViewController.swift */,
 				1F2E9AAD1FBC611C00AE0537 /* SettingTableViewController.swift */,
 				1FF2FB201FBBAF96003ABAF2 /* DurationViewController.swift */,
@@ -111,7 +114,7 @@
 				TargetAttributes = {
 					1FB76A6B1FBB9E0A00480931 = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -158,6 +161,7 @@
 				1F2E9AB01FBC6A1200AE0537 /* ColorViewController.swift in Sources */,
 				1F24060E1FBBB14500760F70 /* NumberPickerViewController.swift in Sources */,
 				1FF2FB211FBBAF96003ABAF2 /* DurationViewController.swift in Sources */,
+				1F2E9AB21FBC7E4B00AE0537 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,8 +298,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SB82G5S6HE;
 				INFOPLIST_FILE = HITs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Jeff.HITs;
@@ -310,8 +315,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SB82G5S6HE;
 				INFOPLIST_FILE = HITs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Jeff.HITs;

@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Active Duration-->
         <scene sceneID="v0r-Hr-OCV">
@@ -306,14 +311,47 @@
         <!--HIT-->
         <scene sceneID="iXq-37-vn3">
             <objects>
-                <viewController id="dMF-Su-HYr" sceneMemberID="viewController">
+                <viewController id="dMF-Su-HYr" customClass="MainViewController" customModule="HITs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="flf-X3-Ub8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99:99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfp-oA-5YI">
+                                <rect key="frame" x="0.0" y="69" width="375" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="90"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="2" height="3"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1/20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbi-CE-F6d">
+                                <rect key="frame" x="0.0" y="194" width="375" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="2" height="3"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjX-w9-QYX">
+                                <rect key="frame" x="106" y="333" width="162" height="141"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" image="ButtonStart"/>
+                                <connections>
+                                    <action selector="btnPressed:" destination="dMF-Su-HYr" eventType="touchUpInside" id="4CD-rf-TnQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="3w6-Sl-XS1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="HIT" image="IconTimer" id="0xL-fG-lvo"/>
+                    <connections>
+                        <outlet property="button" destination="EjX-w9-QYX" id="dkX-wN-UPz"/>
+                        <outlet property="labelReps" destination="Jbi-CE-F6d" id="PIL-gh-Met"/>
+                        <outlet property="labelTimer" destination="Yfp-oA-5YI" id="fOT-1Z-c8u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftm-K7-aLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -339,6 +377,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ButtonStart" width="85" height="85"/>
         <image name="IconSetting" width="21" height="21"/>
         <image name="IconTimer" width="21" height="21"/>
     </resources>

@@ -15,6 +15,7 @@ class SettingTableViewController: UITableViewController {
     
     @IBOutlet weak var labelColorActive: UILabel!
     @IBOutlet weak var labelColorRest: UILabel!
+    @IBOutlet weak var labelColorPause: UILabel!
     
     var SETTING:Setting = Setting()
     
@@ -42,6 +43,7 @@ class SettingTableViewController: UITableViewController {
         labelReps.text = "\(SETTING.numberRep)"
         labelColorActive.text = SETTING.colorActive
         labelColorRest.text = SETTING.colorRest
+        labelColorPause.text = SETTING.colorPaused
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,6 +59,9 @@ class SettingTableViewController: UITableViewController {
         } else if segue.identifier == "segueSetColorRest" {
             let dest = segue.destination as! ColorViewController
             dest.type = "Rest"
+        } else if segue.identifier == "segueSetColorPause" {
+            let dest = segue.destination as! ColorViewController
+            dest.type = "Pause"
         }
     }
 
@@ -69,15 +74,17 @@ class SettingTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
             return 3
+        } else if section == 1{
+            return 3
         } else {
-            return 2
+            return 1
         }
     }
 

@@ -13,6 +13,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var labelTimer: UILabel!
     @IBOutlet weak var labelReps: UILabel!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var labelState: UILabel!
+    
+    @IBOutlet weak var labelTip: UILabel!
+    
     
     // Global
     var SETTING = Setting()
@@ -86,10 +90,28 @@ class MainViewController: UIViewController {
 
     // Redraw all UI
     func updateUI() {
+        updateLabelState()
         updateLabelTimer()
         updateLabelRep()
         updateBackgroundColor()
         updateButtonImage()
+        
+        labelTip.isHidden = true
+    }
+    
+    func updateLabelState() {
+        switch state {
+        case "Idle":
+            labelState.text = ""
+        case "RunningActive":
+            labelState.text = "Active"
+        case "RunningRest":
+            labelState.text = "Rest"
+        case "Paused":
+            labelState.text = "Paused"
+        default:
+            labelState.text = ""
+        }
     }
 
     func updateLabelTimer() {
@@ -126,6 +148,10 @@ class MainViewController: UIViewController {
         } else if state == "RunningRest" {
             UIView.animate(withDuration: 0.5, animations: {
                 self.view.backgroundColor = Setting.DICT_COLOR[self.tmpSetting.colorRest]
+            })
+        } else if state == "Paused" {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.backgroundColor = Setting.DICT_COLOR[self.tmpSetting.colorPaused]
             })
         } else {
             UIView.animate(withDuration: 0.5, animations: {
@@ -173,7 +199,7 @@ class MainViewController: UIViewController {
             // Begin to Rest
             duration = tmpSetting.durationRest
             // Change color
-            updateBackgroundColor()
+            updateUI()
         } else if state == "RunningRest" {
             preState = state
             state = "RunningActive"
@@ -182,12 +208,11 @@ class MainViewController: UIViewController {
             duration = tmpSetting.durationActive
 
             rep -= 1
-            updateLabelRep()
 
             if rep == 0 {
                 workoutFinished()
             } else {
-                updateBackgroundColor()
+                updateUI()
             }
         }
     }
@@ -231,7 +256,7 @@ class MainViewController: UIViewController {
 
             preState = state
             state = "Paused"
-
+            
             updateUI()
         } else if state == "Paused" {
             // Resume timer
@@ -246,14 +271,22 @@ class MainViewController: UIViewController {
 
     // Long Press
     @objc func longPress(press: UILongPressGestureRecognizer) {
+        // Interact-able only when paused
+        if state != "Paused" {
+            return
+        }
+        
+        // Show tips
         if press.state == .began {
-            // Can only cancel timer when paused
-            if state == "Paused" {
-                sendFeedback()
-                updateSetting()
-                initRuntimeVariables()
-                updateUI()
-            }
+            labelTip.isHidden = false
+        }
+        
+        // Complete a long press
+        if press.state == .ended {
+            sendFeedback()
+            updateSetting()
+            initRuntimeVariables()
+            updateUI()
         }
     }
 }

@@ -25,8 +25,10 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         // Do any additional setup after loading the view.
         if type == "Active" {
             self.navBar.title = "Active Screen Color"
-        } else {
+        } else if type == "Rest"{
             self.navBar.title = "Rest Screen Color"
+        } else {
+            self.navBar.title = "Pause Screen Color"
         }
 
         picker.dataSource = self
@@ -42,9 +44,12 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         if type == "Active" {
             colorView.backgroundColor = Setting.DICT_COLOR[SETTING.colorActive]
             picker.selectRow(Setting.ARRAY_COLOR.index(of: SETTING.colorActive)!, inComponent: 0, animated: false)
-        } else {
+        } else if type == "Rest" {
             colorView.backgroundColor = Setting.DICT_COLOR[SETTING.colorRest]
             picker.selectRow(Setting.ARRAY_COLOR.index(of: SETTING.colorRest)!, inComponent: 0, animated: false)
+        } else {
+            colorView.backgroundColor = Setting.DICT_COLOR[SETTING.colorPaused]
+            picker.selectRow(Setting.ARRAY_COLOR.index(of: SETTING.colorPaused)!, inComponent: 0, animated: false)
         }
         
     }
@@ -58,8 +63,10 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         colorView.backgroundColor = Setting.DICT_COLOR[Setting.ARRAY_COLOR[row]]
         if type == "Active" {
             SETTING.colorActive = Setting.ARRAY_COLOR[row]
-        } else {
+        } else if type == "Rest" {
             SETTING.colorRest = Setting.ARRAY_COLOR[row]
+        } else {
+            SETTING.colorPaused = Setting.ARRAY_COLOR[row]
         }
     }
     

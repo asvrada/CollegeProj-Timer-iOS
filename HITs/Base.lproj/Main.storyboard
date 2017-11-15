@@ -206,6 +206,60 @@
                                             <segue destination="z5S-Iz-tGD" kind="show" identifier="segueSetColorRest" id="Qia-Z0-SAC"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellColor" textLabel="WTS-fV-6VE" detailTextLabel="7vX-4O-QU8" style="IBUITableViewCellStyleValue1" id="JX8-4F-8Na">
+                                        <rect key="frame" x="0.0" y="331.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JX8-4F-8Na" id="yoT-VI-AO9">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Pause Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WTS-fV-6VE">
+                                                    <rect key="frame" x="16" y="12" width="104.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7vX-4O-QU8">
+                                                    <rect key="frame" x="296" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" updatesFrequently="YES"/>
+                                                    </accessibility>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="z5S-Iz-tGD" kind="show" identifier="segueSetColorPause" id="k1p-vB-Ybg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Info" id="0U3-Vm-AFd">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="cellColor" textLabel="wzB-pd-wUd" style="IBUITableViewCellStyleDefault" id="qQl-ej-cgL">
+                                        <rect key="frame" x="0.0" y="431.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qQl-ej-cgL" id="j3C-6g-Oml">
+                                            <rect key="frame" x="0.0" y="0.0" width="307" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wzB-pd-wUd">
+                                                    <rect key="frame" x="16" y="0.0" width="291" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="nfC-3D-4TQ" kind="show" id="r5A-Ka-Jox"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -218,6 +272,7 @@
                     <connections>
                         <outlet property="labelActive" destination="5DH-9M-qYO" id="gGq-M4-och"/>
                         <outlet property="labelColorActive" destination="qXa-1G-GaK" id="cxI-7Q-xUQ"/>
+                        <outlet property="labelColorPause" destination="7vX-4O-QU8" id="1a8-2j-qLM"/>
                         <outlet property="labelColorRest" destination="wfl-W5-A7C" id="4BO-k2-k7L"/>
                         <outlet property="labelReps" destination="1A5-kz-bRq" id="P9X-TO-stQ"/>
                         <outlet property="labelRest" destination="w18-tV-ntE" id="36G-Qo-vPk"/>
@@ -226,6 +281,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kjG-BQ-OL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="926" y="262"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Kr3-52-n2s">
+            <objects>
+                <viewController id="nfC-3D-4TQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HlO-DA-6c1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bkv-lT-G5l">
+                                <rect key="frame" x="16" y="122" width="343" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Long press on the button to reset when paused">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="YnP-3O-YAR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZLW-Q5-DBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="926" y="983"/>
         </scene>
         <!--Active Screen Color-->
         <scene sceneID="5zd-9j-O2G">
@@ -333,7 +418,7 @@
                                 <size key="shadowOffset" width="2" height="3"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjX-w9-QYX">
-                                <rect key="frame" x="106" y="333" width="162" height="141"/>
+                                <rect key="frame" x="106" y="335" width="162" height="141"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <state key="normal" image="ButtonStart"/>
@@ -342,6 +427,20 @@
                                     <outletCollection property="gestureRecognizers" destination="slg-71-KgX" appends="YES" id="XEW-X2-gnV"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Release button to reset" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0a-2i-ayU">
+                                <rect key="frame" x="16" y="288" width="343" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Running" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMX-dB-WAC">
+                                <rect key="frame" x="16" y="20" width="343" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -351,11 +450,13 @@
                     <connections>
                         <outlet property="button" destination="EjX-w9-QYX" id="dkX-wN-UPz"/>
                         <outlet property="labelReps" destination="Jbi-CE-F6d" id="PIL-gh-Met"/>
+                        <outlet property="labelState" destination="CMX-dB-WAC" id="0tN-ZO-Uab"/>
                         <outlet property="labelTimer" destination="Yfp-oA-5YI" id="fOT-1Z-c8u"/>
+                        <outlet property="labelTip" destination="m0a-2i-ayU" id="p6b-d7-OGJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftm-K7-aLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1.5" id="slg-71-KgX"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="slg-71-KgX"/>
             </objects>
             <point key="canvasLocation" x="76" y="-444.82758620689657"/>
         </scene>
@@ -384,7 +485,7 @@
         <image name="IconTimer" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5yb-zs-MZP"/>
+        <segue reference="k1p-vB-Ybg"/>
         <segue reference="Wwu-NS-1fq"/>
     </inferredMetricsTieBreakers>
 </document>

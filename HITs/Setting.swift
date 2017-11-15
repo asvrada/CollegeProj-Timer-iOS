@@ -11,16 +11,17 @@ import UIKit
 
 class Setting {
     // In seconds
-    var durationActive = 5
+    var durationActive = 10
     // In seconds
     var durationRest = 5
     // 1 is the minimal value
     // If this hits 0, the workout is over
-    var numberRep = 1
+    var numberRep = 2
 
     var colorActive = "Red"
-    var colorRest = "Cyan"
+    var colorRest = "Green"
     var colorIdle = "White"
+    var colorPaused = "Cyan"
 
     static var DICT_COLOR = [
         "Blue": UIColor.blue,
@@ -32,7 +33,6 @@ class Setting {
         "Light Gray": UIColor.lightGray,
         "Magenta": UIColor.magenta,
         "Orange": UIColor.orange,
-        "Purple": UIColor.purple,
         "Red": UIColor.red,
         "White": UIColor.white,
         "Yellow": UIColor.yellow]
@@ -50,6 +50,7 @@ class Setting {
         self.numberRep = other.numberRep
         self.colorRest = other.colorRest
         self.colorActive = other.colorActive
+        self.colorPaused = other.colorPaused
     }
 
     static func second2MinuteAndSecond (second: Int) -> (Int, Int) {

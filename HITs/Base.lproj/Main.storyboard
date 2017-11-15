@@ -10,10 +10,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Active Duration-->
+        <scene sceneID="v0r-Hr-OCV">
+            <objects>
+                <viewController id="mCv-Bj-PDX" customClass="DurationViewController" customModule="HITs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vyP-Gu-pMF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xex-Kv-2Hd">
+                                <rect key="frame" x="53" y="252" width="268" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="gtP-qN-YdK"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Active Duration" id="vRR-hN-ilo"/>
+                    <connections>
+                        <outlet property="navBar" destination="vRR-hN-ilo" id="AU3-cR-wwG"/>
+                        <outlet property="picker" destination="Xex-Kv-2Hd" id="zEy-yp-VEr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JXJ-cE-gLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2124" y="-224.4377811094453"/>
+        </scene>
         <!--Setting-->
         <scene sceneID="We9-E0-9Ig">
             <objects>
-                <tableViewController id="FNl-lw-S6a" sceneMemberID="viewController">
+                <tableViewController id="FNl-lw-S6a" customClass="SettingTableViewController" customModule="HITs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="yTf-Md-OTw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,7 +74,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="W3v-a7-4wV" kind="show" id="7fp-0t-85K"/>
+                                            <segue destination="mCv-Bj-PDX" kind="show" identifier="segueSetDurationActive" id="Wwu-NS-1fq"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellWorkout" textLabel="hRy-kU-HOO" detailTextLabel="w18-tV-ntE" style="IBUITableViewCellStyleValue1" id="HlX-lp-YKH">
@@ -78,7 +104,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Qbr-eV-hMJ" kind="show" id="qq4-FI-u4S"/>
+                                            <segue destination="mCv-Bj-PDX" kind="show" identifier="segueSetDurationRest" id="6AJ-xZ-uIP"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellWorkout" textLabel="I5n-kI-ZKA" detailTextLabel="1A5-kz-bRq" style="IBUITableViewCellStyleValue1" id="ubg-te-l1s">
@@ -108,7 +134,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="EuE-JR-Ws3" kind="show" id="g8j-bs-69Z"/>
+                                            <segue destination="EuE-JR-Ws3" kind="show" identifier="segueSetRep" id="g8j-bs-69Z"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -142,7 +168,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="z5S-Iz-tGD" kind="show" id="5yb-zs-MZP"/>
+                                            <segue destination="z5S-Iz-tGD" kind="show" identifier="segueSetColorActive" id="5yb-zs-MZP"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellColor" textLabel="lZm-YR-lS9" detailTextLabel="wfl-W5-A7C" style="IBUITableViewCellStyleValue1" id="dWK-SF-j4N">
@@ -172,7 +198,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="3vo-7S-tNS" kind="show" id="CTV-Kt-wBb"/>
+                                            <segue destination="z5S-Iz-tGD" kind="show" identifier="segueSetColorRest" id="Qia-Z0-SAC"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -184,86 +210,81 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Setting" id="9Ro-Zz-A0p"/>
+                    <connections>
+                        <outlet property="labelActive" destination="5DH-9M-qYO" id="gGq-M4-och"/>
+                        <outlet property="labelColorActive" destination="qXa-1G-GaK" id="cxI-7Q-xUQ"/>
+                        <outlet property="labelColorRest" destination="wfl-W5-A7C" id="4BO-k2-k7L"/>
+                        <outlet property="labelReps" destination="1A5-kz-bRq" id="P9X-TO-stQ"/>
+                        <outlet property="labelRest" destination="w18-tV-ntE" id="36G-Qo-vPk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kjG-BQ-OL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="926" y="262"/>
         </scene>
-        <!--View Controller-->
+        <!--Active Screen Color-->
         <scene sceneID="5zd-9j-O2G">
             <objects>
-                <viewController id="z5S-Iz-tGD" sceneMemberID="viewController">
+                <viewController id="z5S-Iz-tGD" customClass="ColorViewController" customModule="HITs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WxA-et-XPy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gI2-gw-TxN">
+                                <rect key="frame" x="73" y="252" width="228" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xwo-9H-I8X">
+                                <rect key="frame" x="137" y="144" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preview" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3B-C3-DjS">
+                                <rect key="frame" x="142" y="105" width="90" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sGk-or-Ffs"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Active Screen Color" id="GUi-7r-UXq"/>
+                    <connections>
+                        <outlet property="colorView" destination="xwo-9H-I8X" id="rJN-bl-Q0R"/>
+                        <outlet property="navBar" destination="GUi-7r-UXq" id="vdJ-hz-zaP"/>
+                        <outlet property="picker" destination="gI2-gw-TxN" id="CzN-mF-2GN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvy-88-xDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="715"/>
+            <point key="canvasLocation" x="2124" y="526.6866566716642"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="7L6-S9-1H5">
-            <objects>
-                <viewController id="3vo-7S-tNS" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lfH-4P-E0e">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="fOH-dZ-3IQ"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EcP-Ga-wyr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2494" y="715"/>
-        </scene>
-        <!--Title-->
-        <scene sceneID="0UC-nJ-sQa">
-            <objects>
-                <viewController id="W3v-a7-4wV" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="a4A-Zv-0EJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="xM3-oj-AaG"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="hWd-Ul-oIq"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ph-9w-iAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1687" y="-289"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="j60-GH-epL">
-            <objects>
-                <viewController id="Qbr-eV-hMJ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gYO-ED-cpm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="5uX-Ts-LTH"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9L5-UT-r18" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2495" y="-289"/>
-        </scene>
-        <!--View Controller-->
+        <!--Number of Reps-->
         <scene sceneID="BUN-2p-3Os">
             <objects>
-                <viewController id="EuE-JR-Ws3" sceneMemberID="viewController">
+                <viewController id="EuE-JR-Ws3" customClass="NumberPickerViewController" customModule="HITs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ba-OJ-dgs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AhP-bP-5qx">
+                                <rect key="frame" x="96" y="252" width="183" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="nuE-kB-n12"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Number of Reps" id="qPI-Zs-khm"/>
+                    <connections>
+                        <outlet property="picker" destination="AhP-bP-5qx" id="AqW-tw-dV0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqR-Rk-yQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3263" y="-289"/>
+            <point key="canvasLocation" x="2932" y="-224.4377811094453"/>
         </scene>
         <!--Setting-->
         <scene sceneID="6Cr-tv-rWp">
@@ -321,4 +342,8 @@
         <image name="IconSetting" width="21" height="21"/>
         <image name="IconTimer" width="21" height="21"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5yb-zs-MZP"/>
+        <segue reference="Wwu-NS-1fq"/>
+    </inferredMetricsTieBreakers>
 </document>

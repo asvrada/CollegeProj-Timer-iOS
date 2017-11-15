@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var labelTimer: UILabel!
     @IBOutlet weak var labelReps: UILabel!
     @IBOutlet weak var button: UIButton!
-
+    
     // Global
     var SETTING = Setting()
     // Used as local copy of conf file
@@ -44,6 +44,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Add Long Press Recongizer to button
+        let longPress = UILongPressGestureRecognizer(target: self, action: (#selector(longPress(press:))))
+        button.addGestureRecognizer(longPress)
+        
         // Set global variable
         SETTING = (UIApplication.shared.delegate as! AppDelegate).SETTING
         // Copy setting
@@ -161,7 +165,7 @@ class MainViewController: UIViewController {
 
     func timeUp() {
         sendFeedback()
-        
+
         if state == "RunningActive" {
             preState = state
             state = "RunningRest"
@@ -221,23 +225,35 @@ class MainViewController: UIViewController {
             startTimer()
         } else if state == "RunningActive" || state == "RunningRest" {
             // Pause button pressed
-            
+
             // stop the timer
             timer.invalidate()
-            
+
             preState = state
             state = "Paused"
-            
+
             updateUI()
         } else if state == "Paused" {
             // Resume timer
             startTimer()
-            
+
             state = preState
             preState = "Paused"
-            
+
             updateUI()
         }
     }
 
+    // Long Press
+    @objc func longPress(press: UILongPressGestureRecognizer) {
+        if press.state == .began {
+            // Can only cancel timer when paused
+            if state == "Paused" {
+                sendFeedback()
+                updateSetting()
+                initRuntimeVariables()
+                updateUI()
+            }
+        }
+    }
 }

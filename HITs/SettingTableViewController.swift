@@ -12,16 +12,16 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet weak var labelActive: UILabel!
     @IBOutlet weak var labelRest: UILabel!
     @IBOutlet weak var labelReps: UILabel!
-    
+
     @IBOutlet weak var labelColorActive: UILabel!
     @IBOutlet weak var labelColorRest: UILabel!
     @IBOutlet weak var labelColorPause: UILabel!
-    
-    var SETTING:Setting = Setting()
-    
+
+    var SETTING: Setting = Setting()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         SETTING = (UIApplication.shared.delegate as! AppDelegate).SETTING
 
         // Uncomment the following line to preserve selection between presentations
@@ -30,14 +30,14 @@ class SettingTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
+
     // Init the detail labels
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         let (aM, aS) = Setting.second2MinuteAndSecond(second: SETTING.durationActive)
         let (rM, rS) = Setting.second2MinuteAndSecond(second: SETTING.durationRest)
-        
+
         labelActive.text = "\(aM):\(aS)"
         labelRest.text = "\(rM):\(rS)"
         labelReps.text = "\(SETTING.numberRep)"
@@ -45,23 +45,35 @@ class SettingTableViewController: UITableViewController {
         labelColorRest.text = SETTING.colorRest
         labelColorPause.text = SETTING.colorPaused
     }
-    
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // WORKOUT
+        if indexPath.section == 0 {
+            performSegue(withIdentifier: "segueSetDuration", sender: self)
+        }
+
+        // COLOR
+        if indexPath.section == 1 {
+            performSegue(withIdentifier: "segueSetColor", sender: self)
+        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueSetDurationActive" {
+        if segue.identifier == "segueSetDuration" {
+            let selectedRow = self.tableView.indexPathForSelectedRow!
             let dest = segue.destination as! DurationViewController
-            dest.type = "Active"
-        } else if segue.identifier == "segueSetDurationRest" {
-            let dest = segue.destination as! DurationViewController
-            dest.type = "Rest"
-        } else if segue.identifier == "segueSetColorActive" {
+            dest.type = selectedRow.row == 0 ? "Active" : "Rest"
+        }
+
+        if segue.identifier == "segueSetColor" {
+            let selectedRow = self.tableView.indexPathForSelectedRow!
             let dest = segue.destination as! ColorViewController
-            dest.type = "Active"
-        } else if segue.identifier == "segueSetColorRest" {
-            let dest = segue.destination as! ColorViewController
-            dest.type = "Rest"
-        } else if segue.identifier == "segueSetColorPause" {
-            let dest = segue.destination as! ColorViewController
-            dest.type = "Pause"
+            let type = [
+                0: "Active",
+                1: "Rest",
+                2: "Pause"
+            ]
+            dest.type = type[selectedRow.row]!
         }
     }
 
@@ -73,19 +85,17 @@ class SettingTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if section == 0 {
-            return 3
-        } else if section == 1{
-            return 3
-        } else {
-            return 1
-        }
+        let map = [
+            0: 3,
+            1: 3,
+            2: 1
+        ]
+
+        return map[section]!
     }
 
     /*

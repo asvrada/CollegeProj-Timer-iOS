@@ -14,10 +14,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var labelReps: UILabel!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var labelState: UILabel!
-    
+
     @IBOutlet weak var labelTip: UILabel!
-    
-    
+
+
     // Global
     var SETTING = Setting()
     // Used as local copy of conf file
@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
         // Add Long Press Recongizer to button
         let longPress = UILongPressGestureRecognizer(target: self, action: (#selector(longPress(press:))))
         button.addGestureRecognizer(longPress)
-        
+
         // Set global variable
         SETTING = (UIApplication.shared.delegate as! AppDelegate).SETTING
         // Copy setting
@@ -95,10 +95,10 @@ class MainViewController: UIViewController {
         updateLabelRep()
         updateBackgroundColor()
         updateButtonImage()
-        
+
         labelTip.isHidden = true
     }
-    
+
     func updateLabelState() {
         switch state {
         case "Idle":
@@ -141,23 +141,16 @@ class MainViewController: UIViewController {
     }
 
     func updateBackgroundColor() {
-        if state == "RunningActive" {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.view.backgroundColor = Setting.DICT_COLOR[self.tmpSetting.colorActive]
-            })
-        } else if state == "RunningRest" {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.view.backgroundColor = Setting.DICT_COLOR[self.tmpSetting.colorRest]
-            })
-        } else if state == "Paused" {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.view.backgroundColor = Setting.DICT_COLOR[self.tmpSetting.colorPaused]
-            })
-        } else {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.view.backgroundColor = Setting.DICT_COLOR[self.tmpSetting.colorIdle]
-            })
-        }
+        let map = [
+            "RunningActive": self.tmpSetting.colorActive,
+            "RunningRest": self.tmpSetting.colorRest,
+            "Paused": self.tmpSetting.colorPaused,
+            "Idle": self.tmpSetting.colorIdle
+        ]
+
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.backgroundColor = Setting.DICT_COLOR[map[self.state]!]
+        })
     }
 
     func updateButtonImage() {
@@ -184,7 +177,7 @@ class MainViewController: UIViewController {
         }
     }
 
-    // Viberate device
+    // Vibrate device
     func sendFeedback() {
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
     }
@@ -208,7 +201,6 @@ class MainViewController: UIViewController {
             duration = tmpSetting.durationActive
 
             rep -= 1
-
             if rep == 0 {
                 workoutFinished()
             } else {
@@ -232,7 +224,6 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func btnPressed(_ sender: Any) {
-        sendFeedback()
         if state == "Idle" {
             // For every time start button pressed
             // We update the setting
@@ -256,7 +247,7 @@ class MainViewController: UIViewController {
 
             preState = state
             state = "Paused"
-            
+
             updateUI()
         } else if state == "Paused" {
             // Resume timer
@@ -275,12 +266,12 @@ class MainViewController: UIViewController {
         if state != "Paused" {
             return
         }
-        
+
         // Show tips
         if press.state == .began {
             labelTip.isHidden = false
         }
-        
+
         // Complete a long press
         if press.state == .ended {
             sendFeedback()

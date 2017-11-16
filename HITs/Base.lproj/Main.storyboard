@@ -78,9 +78,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="mCv-Bj-PDX" kind="show" identifier="segueSetDurationActive" id="Wwu-NS-1fq"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellWorkout" textLabel="hRy-kU-HOO" detailTextLabel="w18-tV-ntE" style="IBUITableViewCellStyleValue1" id="HlX-lp-YKH">
                                         <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
@@ -108,9 +105,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="mCv-Bj-PDX" kind="show" identifier="segueSetDurationRest" id="6AJ-xZ-uIP"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellWorkout" textLabel="I5n-kI-ZKA" detailTextLabel="1A5-kz-bRq" style="IBUITableViewCellStyleValue1" id="ubg-te-l1s">
                                         <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
@@ -172,9 +166,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="z5S-Iz-tGD" kind="show" identifier="segueSetColorActive" id="5yb-zs-MZP"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellColor" textLabel="lZm-YR-lS9" detailTextLabel="wfl-W5-A7C" style="IBUITableViewCellStyleValue1" id="dWK-SF-j4N">
                                         <rect key="frame" x="0.0" y="287.5" width="375" height="44"/>
@@ -202,9 +193,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="z5S-Iz-tGD" kind="show" identifier="segueSetColorRest" id="Qia-Z0-SAC"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellColor" textLabel="WTS-fV-6VE" detailTextLabel="7vX-4O-QU8" style="IBUITableViewCellStyleValue1" id="JX8-4F-8Na">
                                         <rect key="frame" x="0.0" y="331.5" width="375" height="44"/>
@@ -232,9 +220,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="z5S-Iz-tGD" kind="show" identifier="segueSetColorPause" id="k1p-vB-Ybg"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -276,13 +261,15 @@
                         <outlet property="labelColorRest" destination="wfl-W5-A7C" id="4BO-k2-k7L"/>
                         <outlet property="labelReps" destination="1A5-kz-bRq" id="P9X-TO-stQ"/>
                         <outlet property="labelRest" destination="w18-tV-ntE" id="36G-Qo-vPk"/>
+                        <segue destination="mCv-Bj-PDX" kind="show" identifier="segueSetDuration" id="8bg-ya-pya"/>
+                        <segue destination="z5S-Iz-tGD" kind="show" identifier="segueSetColor" id="ceY-eu-IAE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kjG-BQ-OL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="926" y="262"/>
         </scene>
-        <!--View Controller-->
+        <!--About-->
         <scene sceneID="Kr3-52-n2s">
             <objects>
                 <viewController id="nfC-3D-4TQ" sceneMemberID="viewController">
@@ -291,10 +278,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bkv-lT-G5l">
-                                <rect key="frame" x="16" y="122" width="343" height="80"/>
+                                <rect key="frame" x="16" y="108" width="343" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Long press on the button to reset when paused">
+                                    <fragment content="Tip: Long press on the button to reset when paused">
                                         <attributes>
                                             <font key="NSFont" metaFont="system" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -303,14 +290,52 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IconTimer" translatesAutoresizingMaskIntoConstraints="NO" id="mkU-wt-Ndd">
+                                <rect key="frame" x="119" y="265" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IconSetting" translatesAutoresizingMaskIntoConstraints="NO" id="bIk-bm-HIx">
+                                <rect key="frame" x="191" y="265" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Icon made by Smashicons from https://smashicons.com/" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pc8-vg-mDm">
+                                <rect key="frame" x="52" y="337" width="271" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ButtonStart" translatesAutoresizingMaskIntoConstraints="NO" id="E9t-Bf-4e4">
+                                <rect key="frame" x="119" y="409" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ButtonPause" translatesAutoresizingMaskIntoConstraints="NO" id="Ptc-RZ-MM9">
+                                <rect key="frame" x="191" y="409" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Icon made by Yannick from http://yanlu.de" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q54-V0-z4Z">
+                                <rect key="frame" x="52" y="481" width="271" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Credit:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eed-CO-d2l">
+                                <rect key="frame" x="16" y="196" width="343" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YnP-3O-YAR"/>
                     </view>
+                    <navigationItem key="navigationItem" title="About" id="YKE-w6-QrL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLW-Q5-DBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="983"/>
+            <point key="canvasLocation" x="925.60000000000002" y="982.75862068965523"/>
         </scene>
         <!--Active Screen Color-->
         <scene sceneID="5zd-9j-O2G">
@@ -480,12 +505,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ButtonPause" width="85" height="85"/>
         <image name="ButtonStart" width="85" height="85"/>
         <image name="IconSetting" width="21" height="21"/>
         <image name="IconTimer" width="21" height="21"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="k1p-vB-Ybg"/>
-        <segue reference="Wwu-NS-1fq"/>
-    </inferredMetricsTieBreakers>
 </document>

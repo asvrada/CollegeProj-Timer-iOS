@@ -49,7 +49,10 @@ class SettingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // WORKOUT
         if indexPath.section == 0 {
-            performSegue(withIdentifier: "segueSetDuration", sender: self)
+            // Skip when Rep cell pressed
+            if indexPath.row != 2 {
+                performSegue(withIdentifier: "segueSetDuration", sender: self)
+            }
         }
 
         // COLOR

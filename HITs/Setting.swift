@@ -53,7 +53,16 @@ class Setting {
         self.colorPaused = other.colorPaused
     }
 
+    // Some useful functions
+    
+    // Convert time in second to the format (minute and second)
     static func second2MinuteAndSecond (second: Int) -> (Int, Int) {
         return (second / 60, second % 60)
     }
+    
+    // Generate a list of string that represents Int from range min to max (Included)
+    static func generateStringList(min:Int, max: Int) -> [String] {
+        return (min...max).map { "\($0)" }
+    }
+    
 }

@@ -22,7 +22,7 @@ class NumberPickerViewController: UIViewController, UIPickerViewDataSource, UIPi
         // Do any additional setup after loading the view.
         picker.dataSource = self
         picker.delegate = self
-        pickerData = generateStringList(max: 20)
+        pickerData = Setting.generateStringList(min: 1, max: 20)
         pickerLabel = ["Repeats"]
     }
     
@@ -31,16 +31,6 @@ class NumberPickerViewController: UIViewController, UIPickerViewDataSource, UIPi
         
         // Set default value for picker
         picker.selectRow(SETTING.numberRep - 1, inComponent: 0, animated: false)
-    }
-
-    // Generate a list of string that represents int from 1 to max
-    func generateStringList(max: Int) -> [String] {
-        return (1...max).map { "\($0)" }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -54,7 +44,6 @@ class NumberPickerViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-
         if component == 0 {
             return pickerData.count
         } else {
@@ -69,15 +58,5 @@ class NumberPickerViewController: UIViewController, UIPickerViewDataSource, UIPi
             return pickerLabel[0]
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

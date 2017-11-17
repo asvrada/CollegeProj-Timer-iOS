@@ -25,10 +25,10 @@ class NumberPickerViewController: UIViewController, UIPickerViewDataSource, UIPi
         pickerData = Setting.generateStringList(min: 1, max: 20)
         pickerLabel = ["Repeats"]
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         // Set default value for picker
         picker.selectRow(SETTING.numberRep - 1, inComponent: 0, animated: false)
     }
@@ -44,19 +44,11 @@ class NumberPickerViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if component == 0 {
-            return pickerData.count
-        } else {
-            return pickerLabel.count
-        }
+        return component == 0 ? pickerData.count : pickerLabel.count
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if component == 0 {
-            return pickerData[row]
-        } else {
-            return pickerLabel[0]
-        }
+        return component == 0 ? pickerData[row] : pickerLabel[row]
     }
 
 }

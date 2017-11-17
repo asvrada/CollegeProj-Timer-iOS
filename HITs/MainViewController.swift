@@ -171,7 +171,7 @@ class MainViewController: UIViewController {
         countHalfSecond += 1
         updateLabelTimer()
 
-        if countHalfSecond >= duration * 2 {
+        if countHalfSecond > duration * 2 {
             countHalfSecond = -1
             timeUp()
         }

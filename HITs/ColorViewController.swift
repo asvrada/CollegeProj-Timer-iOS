@@ -28,7 +28,7 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             "Rest": "Rest Screen Color",
             "Pause": "Pause Screen Color"
         ]
-        self.navBar.title = map[type]
+        self.navBar.title = map[type]!
 
         picker.dataSource = self
         picker.delegate = self
@@ -39,19 +39,23 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let map = [
+        let map:[String:String] = [
             "Active": SETTING.colorActive,
             "Rest": SETTING.colorRest,
             "Pause": SETTING.colorPaused
         ]
-        let color = map[type]!
+        let color:String = map[type]!
 
         colorView.backgroundColor = Setting.DICT_COLOR[color]
         picker.selectRow(Setting.ARRAY_COLOR.index(of: color)!, inComponent: 0, animated: false)
     }
 
+    // Callback on selected value
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // Change the background color of preview view
         colorView.backgroundColor = Setting.DICT_COLOR[Setting.ARRAY_COLOR[row]]
+        
+        // Update the setting
         if type == "Active" {
             SETTING.colorActive = Setting.ARRAY_COLOR[row]
         } else if type == "Rest" {
@@ -72,15 +76,5 @@ class ColorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return Setting.ARRAY_COLOR.count
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

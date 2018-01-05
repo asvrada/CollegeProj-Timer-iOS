@@ -1,4 +1,4 @@
-# Simple Countdown App for iOS
+# Simple Timer App for iOS
 ---
 
 ### Screenshot:  
